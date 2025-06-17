@@ -1,35 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 const Login = () => {
-    const[loginData,setLoginData]=usestate({
-        email:"",
-        password:""
-    })
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-function handleInput(e){
-    setLoginData(...loginData,[e.target.name]:e.target.value})
-}
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Handle login logic here
+        console.log('Email:', email);
+        console.log('Password:', password);
+    };
 
+    return (
+        <div style={{ maxWidth: 400, margin: '0 auto', padding: 20 }}>
+            <h2>Login</h2>
+            <form onSubmit={handleSubmit}>
+                <div style={{ marginBottom: 10 }}>
+                    <label>Email:</label>
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        required
+                        style={{ width: '100%', padding: 8 }}
+                    />
+                </div>
+                <div style={{ marginBottom: 10 }}>
+                    <label>Password:</label>
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        required
+                        style={{ width: '100%', padding: 8 }}
+                    />
+                </div>
+                <button type="submit" style={{ padding: 10, width: '100%' }}>
+                    Login
+                </button>
+            </form>
+        </div>
+    );
+};
 
-    function handleLogin(event){
-        event.preventDefault();
-        if(loginData.email==""){
-            alert("Please enter email...");
-            return;
-        }
-        if(loginData.password==""){
-            alert("Please enter password...");
-            return;
-    }
-  return (
-    <div>
-        <form>
-            <label htmlFor="">Email</label>
-        
-        </form>
-      
-    </div>
-  )
-}
-
-export default Login
+export default Login;
