@@ -1,7 +1,11 @@
-import {usestate} from 'react'
-import './App.css'
-import Logic from './components/Login'
+import React from 'react';
 
-function App(){
-    const(count,setcount)=usestate(0);
+function App() {
+    return (
+        <div>
+            <h1>Welcome to the E-commerce App</h1>
+        </div>
+    );
 }
+
+export default App;
